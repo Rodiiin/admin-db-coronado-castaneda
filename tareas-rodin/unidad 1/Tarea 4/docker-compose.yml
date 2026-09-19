@@ -1,0 +1,17 @@
+
+services:
+  mysql_practica:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mysql_practica_container
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: sistema_ventas
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_practica_data:/var/lib/mysql
+
+volumes:
+  db_practica_data:

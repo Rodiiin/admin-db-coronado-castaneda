@@ -1,0 +1,21 @@
+services:
+  mysql_db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mysql:8.0
+    container_name: mysql_local_transactions
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: my_db_cuentas
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+
+
+
+volumes:
+  db_data:
+  
